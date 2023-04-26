@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('./partials/head.ejs') %>
+<body>
+    <%- include('./partials/nav.ejs') %>
+
+    <div class="main">
+        <h1>KicksHub</h1>
+        <br>
+
+        <div class="grid-container"></div>
+        <% if (produkt.length > 0) { %>
+            <% produkt.forEach(produkt => { %>
+                <div class="card">
+                    <h1><%= produkt.merke %></h1>
+                    <h2><%= produkt.modell %><</h2>
+                    <p class="price"><%= produkt.pris %><</p>
+                    <p><button>Legg til i handlekurv</button></p>
+                    <p><button>Mer info</button></p>
+                </div>
+            <% }) %>
+        <% } else { %>
+            <p>Ingen produkter</p>
+        <% } %>
+    </div>
+
+    <%- include('./partials/footer.ejs') %>
+</body>
+</html>

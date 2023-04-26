@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('./partials/head.ejs') %>
+  <body>
+    <%- include('./partials/nav.ejs') %>
+
+    <div class="main">
+      <h1>Velkommen Admin</h1>
+      <h2> <%= user %> </h2>
+    </div>
+
+    <form action="/nyprod" method="post">
+        <label for="tittel">Tittel:</label>
+        <input type="text" name="tittel" required/><br> <br>
+        <label for="modell">Modell:</label>
+        <input type="text" name="modell" required/><br> <br>
+        <label for="merke">Merke:</label>
+        <input type="text" name="merke" required/><br> <br>
+        <label for="pris">Pris:</label>
+        <input type="number" name="pris" required/><br> <br>
+        <label for="artikkelnummer">Artikkelnummer:</label>
+        <input type="text" name="artikkelnummer" required/><br> <br>
+        <label for="dato">Dato:</label>
+        <input type="date" name="dato" required/><br> <br>
+        <input type="submit" name="reg" value="Registrer produkt">
+    </form>
+
+    <br> <br>
+
+    <form action="/veileder" method="get">
+        <input type="submit" name="veileder" id="veileder" value="Veileder">
+    </form>
+
+    <%- include('./partials/footer') %>
+
+  </body>
+</html>
