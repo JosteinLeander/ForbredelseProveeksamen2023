@@ -2,7 +2,8 @@
 const express = require("express");
 const dotenv = require("dotenv");
 const mongoose = require("mongoose");
-const User = require("./models/User");
+const Admin = require("./models/Admin");
+const Prod = require("./models/Produkt");
 
 const app = express();
 
@@ -12,7 +13,8 @@ app.set("view engine", "ejs");
 
 // Database tilkobling MongoDB
 mongoose.set("strictQuery", false);
-const dbURI = "mongodb+srv://JosteinLL:ForSkole@cluster0.nqsbe58.mongodb.net/nodem?retryWrites=true&w=majority";
+const dbURI = "mongodb+srv://josteinla:Passord1@cluster1.ekux2ad.mongodb.net/Cluster1?retryWrites=true&w=majority";
+
 mongoose.connect(dbURI)
   .then(() => {
     app.listen(80);
@@ -79,3 +81,9 @@ app.post("/nyprod", async (req, res) => {
         res.render("admin.ejs", { title: "Admin", user: bruker })
     }
 });
+
+// Veileder
+app.get("/Veileder", (req, res) => {
+    res.render("veileder.ejs", { title: "veileder", user: bruker });
+});
+
