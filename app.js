@@ -31,7 +31,13 @@ app.use(express.static("public"));
 let bruker = "";
 
 // Nettsider
-app.get("/", (req, res) => {
+app.get("/", async (req, res) => {
+    //const data = await Prod('produkts').find().toArray();
+    let produkt = "";
+    /* if (data) {
+        produkt = data;
+    }  */
+
     res.render("index.ejs", { title: "Hjem", produkt: produkt, user: bruker });
 });
 
